@@ -1,0 +1,63 @@
+# 
+#  the file contains 4 sections : config,  data,  fista and store.
+#
+# entries are case insensitive (except for file names !).
+# see python ConfigParser documentation for a full description of capabilities
+
+[config]
+
+#   not used anymore
+#npk_dir = /Users/chiron/bitbuck/draft/ 
+
+[data]
+# Files can be Apex files or msh5 .. 
+# data = /DATA/FT-ICR/bradykinine/bradikynine_2D_000001.d
+#/media/lio/Tera/Data/FTICR-Data/Data/APO AI/APOAI_H2OMetOHAF_MS_profile_000001_CAL.d
+
+#file_to_treat = /Users/mad/NPKV2/DATA_test/cytoC_ms_1scan_000001.d
+#file_to_treat = /home/lio/Documents/bitbucket/DATA_test/20130523_ubi_5_scan_res_30000_1.dat
+#/Users/chiron/bitbuck/DATA_test/temp/ubiquitin_5_scan_res_30000_1.dat
+#file_to_treat = /Users/chiron/bitbuck/DATA_test/ubiquitin_5_scan_res_30000_1.dat
+#file_to_treat = ../DATA_test/ubiquitin_5_scan_res_30000_1.dat
+file_to_treat = ../DATA_test/cytoC_ms_1scan_000001.d
+
+[fista]
+#
+# fid_length_div_by : value by which the length of the Fid is divided. 
+# first_point_trunc_fid : the point at which begins the Fid's cut.
+# do_fista : for performing or not Fista.
+# factor of superresolution.
+# zerofill_ref : zerofilling for the reference spectrum.
+# divide_lambda : correction on the noiselevel calculation it divides this noise level.
+# apod_fista : apodisation in Fista.
+# multiproc : multiprocessing True or False.
+# show_truncated_fid : show where the Fid is cut.
+# addr_sampling : address of the file containing the sampling indices of the observed data.
+# For the test, addr_sampling is ../DATA_test/Sampling_file_aposteriori_cytoCpnas.list
+#
+fid_length_div_by = 2
+first_point_trunc_fid = 0
+do_fista = True
+superresol = 4
+zerofill_ref = 2
+divide_lambda = 0.5
+apod_fista = False
+multiproc = False
+show_truncated_fid = False
+data_sampled = False
+addr_sampling = ../DATA_test/Sampling_file_aposteriori_cytoCpnas.list
+
+[store]
+#
+# if "addr_data_saved" is blank, it saves the data in a directory close to the data
+# save_ref_spec : save the reference spectrum
+# save_fista_spec : save spectrum obtained with Fista
+# save_date : save the date in the name of files
+# save_fft_div : save the fft of the divided Fid.
+#
+save_ref_spec = True
+save_fista_spec = True
+save_fft_div = True
+save_date = True
+addr_data_saved = 
+

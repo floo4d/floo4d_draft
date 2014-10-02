@@ -1,0 +1,203 @@
+using /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002.mscf as configuration file
+reading config file
+------------ processing parameters ------------------
+apex  : ../DATA_test/ubiquitine_2D_000002.d
+do_F1  : True
+do_F2  : True
+do_flip  : True
+do_modulus  : True
+do_recital  : False
+do_rem_ridge  : False
+do_urqrd  : False
+format  : Apex
+infile  : /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5
+interfile  : None
+largest  : 1073741824
+mp  : False
+nproc  : 4
+outfile  : /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_urqrd_000002_mr.msh5
+recital_iterations  : 4
+recital_miniterations  : 300
+recital_scale_noise  : 0.35
+samplingfile  : None
+samplingfile_fake  : False
+szmlist  : None
+tempdir  : /Users/chiron/bitbuck/DATA_test/tmp
+urqrd_rank  : 25
+zflist  : None
+-----------------------------------------------------
+reading /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5
+******************* 
+ /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5 is a FTICR-MS file created by NMRTEC on 08/27/2014 11:40 with code version 0.8.
+ HDF5 version is 1.8.9 and API version is 0.8.
+ Last modification has been made 08/27/2014 11:40 
+********************
+ Load : 0:00:00
+---------------SETTINGS---------------------
+| MAX_COLUMNS  512
+| MAX_NODE_ATTRS  4096
+| MAX_GROUP_WIDTH  16384
+| MAX_UNDO_PATH_LENGTH  10240
+| CHUNK_CACHE_NELMTS  521
+| CHUNK_CACHE_PREEMPT  1
+| CHUNK_CACHE_SIZE  104857600
+| METADATA_CACHE_SIZE  104857600
+| NODE_CACHE_SLOTS  104857600
+| IO_BUFFER_SIZE  1048576
+| BUFFER_TIMES  100
+| EXPECTED_ROWS_EARRAY  1000
+| EXPECTED_ROWS_TABLE  10000
+| PYTABLES_SYS_ATTRS  True
+---------------SETTINGS---------------------
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+[2048, 65536] 128 Mpoint
+sizes to process [(2048, 65536), (1024, 1024)]
+[(2048, 65536), (1024, 1024)]
+preparing intermediate file 
+creating TEMPFILE: /Users/chiron/bitbuck/DATA_test/tmp/tmpfile.msh5
+preparing output file 
+######################### d1.report() ################
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+######################### Checked ################
+
+=============================
+processing FT
+=============================
+---------- /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+---------- None
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  131072 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 94627
+---------- /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_urqrd_000002_mr.msh5
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+############  in do_proc_F2 #########
+dinp.axis1.itype  0
+dinp.axis2.itype  0
+doutp.axis1.itype  0
+doutp.axis2.itype  0
+dinp.axis1.size  2048
+dinp.axis2.size  65536
+doutp.axis1.size  2048
+doutp.axis2.size  131072
+########################### doutp.report() 
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  131072 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 94627
+ F2 processing time : 0:00:40
+LEFT_POINT 236.453319875
+MPI process 0 : MPI NEW STYLE
+ F1 processing time : 0:02:07
+ F1-F2 processing time : 0:02:47
+==  FT Processing finished  ==
+ FT processing time : 0:02:47
+
+================
+downsampling level 1
+================
+downsampling resol2 (1024, 1024)
+Dim 2
+Axis F1 : FT-ICR axis at 557.756062 kHz,  1024 real points,  from mz = 2500.000   to m/z =  258.877  R max (M=400) = 815
+Axis F2 : FT-ICR axis at 500.000000 kHz,  1024 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 739
+ Downsampling time : 0:00:24
+== Processing finished  ==
+ Total processing time : 0:03:12
+function solve called 0 times
+Closing remaining open files: /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_urqrd_000002_mr.msh5... done /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5... done
+p
+urqrd_rank  : 25
+zflist  : None
+-----------------------------------------------------
+reading /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5
+******************* 
+ /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5 is a FTICR-MS file created by NMRTEC on 08/27/2014 11:40 with code version 0.8.
+ HDF5 version is 1.8.9 and API version is 0.8.
+ Last modification has been made 08/27/2014 11:40 
+********************
+ Load : 0:00:00
+---------------SETTINGS---------------------
+| MAX_COLUMNS  512
+| MAX_NODE_ATTRS  4096
+| MAX_GROUP_WIDTH  16384
+| MAX_UNDO_PATH_LENGTH  10240
+| CHUNK_CACHE_NELMTS  521
+| CHUNK_CACHE_PREEMPT  1
+| CHUNK_CACHE_SIZE  104857600
+| METADATA_CACHE_SIZE  104857600
+| NODE_CACHE_SLOTS  104857600
+| IO_BUFFER_SIZE  1048576
+| BUFFER_TIMES  100
+| EXPECTED_ROWS_EARRAY  1000
+| EXPECTED_ROWS_TABLE  10000
+| PYTABLES_SYS_ATTRS  True
+---------------SETTINGS---------------------
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+[2048, 65536] 128 Mpoint
+sizes to process [(2048, 65536), (1024, 1024)]
+[(2048, 65536), (1024, 1024)]
+preparing intermediate file 
+creating TEMPFILE: /Users/chiron/bitbuck/DATA_test/tmp/tmpfile.msh5
+preparing output file 
+######################### d1.report() ################
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+######################### Checked ################
+
+=============================
+processing FT
+=============================
+---------- /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_000002_in.msh5
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+---------- None
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  131072 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 94627
+---------- /Users/chiron/bitbuck/DATA_test/ubiquitine_2D_urqrd_000002_mr.msh5
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  65536 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 47313
+############  in do_proc_F2 #########
+dinp.axis1.itype  0
+dinp.axis2.itype  0
+doutp.axis1.itype  0
+doutp.axis2.itype  0
+dinp.axis1.size  2048
+dinp.axis2.size  65536
+doutp.axis1.size  2048
+doutp.axis2.size  131072
+########################### doutp.report() 
+Dim 2
+Axis F1 : FT-ICR axis at 500.000000 kHz,  2048 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 1478
+Axis F2 : FT-ICR axis at 500.000000 kHz,  131072 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 94627
+ F2 processing time : 0:00:40
+LEFT_POINT 236.453319875
+MPI process 0 : MPI NEW STYLE
+ F1 processing time : 0:02:07
+ F1-F2 processing time : 0:02:47
+==  FT Processing finished  ==
+ FT processing time : 0:02:47
+
+================
+downsampling level 1
+================
+downsampling resol2 (1024, 1024)
+Dim 2
+Axis F1 : FT-ICR axis at 557.756062 kHz,  1024 real points,  from mz = 2500.000   to m/z =  258.877  R max (M=400) = 815
+Axis F2 : FT-ICR axis at 500.000000 kHz,  1024 real points,  from mz = 2500.000   to m/z =  288.780  R max (M=400) = 739
+ Downsampling time : 0:00:24
+== Processing finished  ==
+ Total processing time : 0:03:12
+function solve called 0 times
