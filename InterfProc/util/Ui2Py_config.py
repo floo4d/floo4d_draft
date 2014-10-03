@@ -111,8 +111,11 @@ class py2ui(object):
 if __name__ == '__main__':
     
     if igbmc:
-        name_py = '/Users/chiron/bitbuck/draft/interfProc/configUi.py'
-        name_ui = '/Users/chiron/bitbuck/draft/interfProc/util/config.ui'
+        
+        name_py = '/Users/chiron/bitbuck/floo4d_draft/InterfProc/configUi.py'
+        name_ui = '/Users/chiron/bitbuck/floo4d_draft/InterfProc/util/config.ui'
+        #name_py = '/Users/chiron/bitbuck/draft/interfProc/configUi.py'
+        #name_ui = '/Users/chiron/bitbuck/draft/interfProc/util/config.ui'
 
     elif home:
         name_py = '/home/lio/Bureau/Encours/interf_processing2D/draft/interfProc/configUi.py'

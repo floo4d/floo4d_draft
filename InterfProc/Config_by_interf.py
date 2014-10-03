@@ -13,7 +13,8 @@ import shutil as sh
 
 '''
 Program for making the process.mscf file from the interface. 
-
+First make a self.param object containing information from interface. 
+Then read the configfile and fill the interface with the values found there. 
 '''
 
 class config(): #interface
@@ -47,6 +48,10 @@ class config(): #interface
         Make the object self.param from the Pyside interface informations.
         '''
         self.configui = open('InterfProc/configUi.py','r')
+        for param in self.param:
+            self.param[param] = ''  # self.param[param] contains a blank in case the parameter is not specified.
+        self.configui.close() 
+            
         for l in self.configui.readlines():
             if ('label' in l  or 'checkBox' in l) and 'setText' in l:
                 try:
@@ -71,6 +76,7 @@ class config(): #interface
         Saved mscf is saved next to processed files.
         Show the values in the interface.
         '''
+        print 'take a configfile for making self.param'
         if not os.path.exists(self.addr_last_processing_mscf):
             file_config = open(self.addr_orig_processing_mscf,'r') # takes the example config file for completing the dictionary
             print "using self.addr_orig_processing_mscf ", self.addr_orig_processing_mscf
@@ -80,10 +86,12 @@ class config(): #interface
             print "using self.addr_last_processing_mscf ", self.addr_last_processing_mscf
             self.current_used_configfile = self.addr_last_processing_mscf
         for line in file_config:
-            for param in self.param:        
-                if line.startswith(param) :
+            for param in self.param: 
+                     
+                if line.startswith(param) : # if the line in the configfile contains an entry of the interface.. 
                     value_mscf = line.split('=')[1]
-                    self.param[param].append(value_mscf)    # build a dictionnary from the original config file.
+                    self.param[param].append(value_mscf)    # build a dictionnary from the used config file.
+
             if len(self.param['proc_number']) == 1:
                 self.param['proc_number'].append('1')
                 self.proc_number = 1
@@ -94,16 +102,24 @@ class config(): #interface
         # print "self.param ", self.param
         # print "#################"
         for param in self.param:
-             
+            '''
+            For each element in self.param set the corresponding object in the interface with the right value. 
+            '''
+            print "param is ", param
             if self.param.has_key(param):
-                kind, attr = self.choose_attr(param)
-                setcf = getattr(self.ui, attr)
+                print "self.param.has_key(param)"
+                kind, attr = self.choose_attr(param) # according to the ui object is lineEdit or checkBox make a choice.
+                print "kind, attr ",kind, attr
+                setcf = getattr(self.ui, attr)     # retrieve the corresponding attribute in the interface
                 if kind == 'l':
                     #print "self.param[param] ", self.param[param]
-                    setcf.setText(self.param[param][1])                     # make the line values.
+                    setcf.setText(self.param[param][1])                     # set the line values.
                 if kind == 'c':
-                    #print "param ", param
+                    print "param ", param
                     #print eval(self.param[param][1])
+                    if self.param[param][1] == '':
+                        self.param[param][1] = 'False'
+                    print "self.param[param][1] ",self.param[param][1]
                     setcf.setChecked(eval(self.param[param][1]))            # make the check buttons
         print "param ", param
         file_config.close()
@@ -144,6 +160,7 @@ class config(): #interface
         Write new configfile next to the file to the data to be processed.
         Write also in the InterfProc directory the last process.mscf used.   
         '''
+        print "write the configfiles"
         num_lines = sum(1 for line in open(self.current_used_configfile))
         print "num_lines ",num_lines
         file_config = open(self.current_used_configfile,'r')                          # take an arbitrary configfile for presenting values in the interface (process_eg.mscf or last process.mscf)
@@ -162,7 +179,7 @@ class config(): #interface
                 if line.startswith(param) or (numline == (num_lines-1) and not proc_number_found) :
                     print_line = False
                     kind, attr = self.choose_attr(param)
-                    setcf = getattr(self.ui, attr)
+                    setcf = getattr(self.ui, attr) 
                     self.write_case(param, new_config_file, setcf, kind)
                     break
             if print_line:
