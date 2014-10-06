@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '/Users/chiron/bitbuck/floo4d_draft/InterfProc/util/config.ui'
 #
-# Created: Fri Oct  3 12:04:52 2014
+# Created: Mon Oct  6 16:35:11 2014
 #      by: PyQt4 UI code generator 4.8.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -129,17 +129,17 @@ class Ui_MainWindow(object):
         self.lineEdit_12.setGeometry(QtCore.QRect(140, 50, 161, 27))
         self.lineEdit_12.setObjectName(_fromUtf8("lineEdit_12"))
         self.label_13 = QtGui.QLabel(self.centralwidget)
-        self.label_13.setGeometry(QtCore.QRect(320, 10, 81, 17))
+        self.label_13.setGeometry(QtCore.QRect(310, 30, 81, 17))
         self.label_13.setObjectName(_fromUtf8("label_13"))
         self.lineEdit_13 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_13.setGeometry(QtCore.QRect(410, 10, 81, 27))
+        self.lineEdit_13.setGeometry(QtCore.QRect(370, 25, 81, 27))
         self.lineEdit_13.setObjectName(_fromUtf8("lineEdit_13"))
         self.lineEdit_14 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_14.setGeometry(QtCore.QRect(410, 50, 81, 27))
+        self.lineEdit_14.setGeometry(QtCore.QRect(520, 24, 81, 27))
         self.lineEdit_14.setText(_fromUtf8(""))
         self.lineEdit_14.setObjectName(_fromUtf8("lineEdit_14"))
         self.label_14 = QtGui.QLabel(self.centralwidget)
-        self.label_14.setGeometry(QtCore.QRect(320, 50, 91, 17))
+        self.label_14.setGeometry(QtCore.QRect(460, 30, 91, 17))
         self.label_14.setObjectName(_fromUtf8("label_14"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
@@ -175,6 +175,6 @@ class Ui_MainWindow(object):
         self.checkBox_7.setText(QtGui.QApplication.translate("MainWindow", "do_rem_ridge", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("MainWindow", "proc_number", None, QtGui.QApplication.UnicodeUTF8))
         self.label_12.setText(QtGui.QApplication.translate("MainWindow", "F2_specwidth : ", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_13.setText(QtGui.QApplication.translate("MainWindow", "ref_mass_1 : ", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_14.setText(QtGui.QApplication.translate("MainWindow", "ref_mass_2 : ", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_13.setText(QtGui.QApplication.translate("MainWindow", "ref_mass : ", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_14.setText(QtGui.QApplication.translate("MainWindow", "ref_freq : ", None, QtGui.QApplication.UnicodeUTF8))
 

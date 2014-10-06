@@ -437,21 +437,21 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>10</y>
+      <x>310</x>
+      <y>30</y>
       <width>81</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>ref_mass_1 : </string>
+     <string>ref_mass : </string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_13">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>10</y>
+      <x>370</x>
+      <y>25</y>
       <width>81</width>
       <height>27</height>
      </rect>
@@ -460,8 +460,8 @@
    <widget class="QLineEdit" name="lineEdit_14">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>50</y>
+      <x>520</x>
+      <y>24</y>
       <width>81</width>
       <height>27</height>
      </rect>
@@ -473,14 +473,14 @@
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>50</y>
+      <x>460</x>
+      <y>30</y>
       <width>91</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>ref_mass_2 : </string>
+     <string>ref_freq : </string>
     </property>
    </widget>
   </widget>

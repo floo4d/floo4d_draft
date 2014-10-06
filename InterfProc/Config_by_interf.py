@@ -10,11 +10,11 @@ dir_path_interf = opd(os.path.abspath(__file__)) # path of the directory of the 
 dir_path_general = opd(dir_path_interf) # path of the directory above the directory of the current file ('draft')
 import shutil as sh
 
-
 '''
 Program for making the process.mscf file from the interface. 
-First make a self.param object containing information from interface. 
-Then read the configfile and fill the interface with the values found there. 
+First make a self.param object containing information from interface (dictionary with the entries found in the interface).
+Then read the configfile and fill the interface with the values found in the configfile.
+If the values are blank, let the values in the interface empty.  
 '''
 
 class config(): #interface
@@ -48,9 +48,9 @@ class config(): #interface
         Make the object self.param from the Pyside interface informations.
         '''
         self.configui = open('InterfProc/configUi.py','r')
-        for param in self.param:
-            self.param[param] = ''  # self.param[param] contains a blank in case the parameter is not specified.
-        self.configui.close() 
+        # for param in self.param:
+        #     self.param[param] = ''  # self.param[param] contains a blank in case the parameter is not specified.
+        #self.configui.close() 
             
         for l in self.configui.readlines():
             if ('label' in l  or 'checkBox' in l) and 'setText' in l:
@@ -58,9 +58,9 @@ class config(): #interface
                     nb = l.split('.')[1].split('_')[1]
                 except:
                     nb = ''
-                if 'label' in l:
+                if 'label' in l: # if lineEdit
                     elem = 'l'
-                elif 'checkBox' in l:
+                elif 'checkBox' in l: # if Checkbox
                     elem = 'c'
                 try:
                     self.param[l.split('"')[3].split(':')[0].rstrip()] = [elem+nb]
@@ -76,8 +76,8 @@ class config(): #interface
         Saved mscf is saved next to processed files.
         Show the values in the interface.
         '''
-        print 'take a configfile for making self.param'
-        if not os.path.exists(self.addr_last_processing_mscf):
+        print 'filling self.param from configfile'
+        if not os.path.exists(self.addr_last_processing_mscf): # defines the current configfile
             file_config = open(self.addr_orig_processing_mscf,'r') # takes the example config file for completing the dictionary
             print "using self.addr_orig_processing_mscf ", self.addr_orig_processing_mscf
             self.current_used_configfile = self.addr_orig_processing_mscf
@@ -85,41 +85,36 @@ class config(): #interface
             file_config = open(self.addr_last_processing_mscf,'r') # takes the last config file for completing the dictionary
             print "using self.addr_last_processing_mscf ", self.addr_last_processing_mscf
             self.current_used_configfile = self.addr_last_processing_mscf
-        for line in file_config:
+        for line in file_config: # read the configfile and search for parameters
             for param in self.param: 
-                     
                 if line.startswith(param) : # if the line in the configfile contains an entry of the interface.. 
                     value_mscf = line.split('=')[1]
-                    self.param[param].append(value_mscf)    # build a dictionnary from the used config file.
-
+                    self.param[param].append(value_mscf)    # build a dictionnary from the config file.
             if len(self.param['proc_number']) == 1:
                 self.param['proc_number'].append('1')
                 self.proc_number = 1
-        
-        # Show in the interface the default values.
-        # print "setting values in the interface from the configfile"
-        # print "#################"
-        # print "self.param ", self.param
-        # print "#################"
         for param in self.param:
             '''
             For each element in self.param set the corresponding object in the interface with the right value. 
             '''
-            print "param is ", param
+            print "##### param is ", param
             if self.param.has_key(param):
                 print "self.param.has_key(param)"
                 kind, attr = self.choose_attr(param) # according to the ui object is lineEdit or checkBox make a choice.
                 print "kind, attr ",kind, attr
                 setcf = getattr(self.ui, attr)     # retrieve the corresponding attribute in the interface
-                if kind == 'l':
-                    #print "self.param[param] ", self.param[param]
-                    setcf.setText(self.param[param][1])                     # set the line values.
-                if kind == 'c':
+                if kind == 'l': # if lineEdit
+                    print "self.param[param] ", self.param[param]
+                    try:
+                        setcf.setText(self.param[param][1])                     # set the line values.
+                    except:
+                        setcf.setText('') # if there is no valu put a blank
+                if kind == 'c': # if checkBox
                     print "param ", param
                     #print eval(self.param[param][1])
                     if self.param[param][1] == '':
                         self.param[param][1] = 'False'
-                    print "self.param[param][1] ",self.param[param][1]
+                    print "self.param[param][1] ", self.param[param][1]
                     setcf.setChecked(eval(self.param[param][1]))            # make the check buttons
         print "param ", param
         file_config.close()
@@ -142,7 +137,7 @@ class config(): #interface
         Called in "save_config" once read_config has been done.
         Write parameters with their value in the new config file.
         '''
-        print "####### write case for param ", param
+        #print "####### write case for param ", param
         if kind == 'l':
             new_config_file.writelines(param + ' = ' + setcf.text().lstrip() + '\n')
         if param == 'proc_number':
